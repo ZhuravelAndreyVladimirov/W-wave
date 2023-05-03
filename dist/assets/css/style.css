@@ -526,6 +526,10 @@ body {
     font-weight: 400;
 }
 
+.body.menu--open {
+    overflow-y: hidden;
+}
+
 .container {
     max-width: 1140px;
     margin: auto;
@@ -592,19 +596,20 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 39px;
+    transition: gap 0.4s linear;
 }
 
 .search--open .header__nav-list {
-    transition: gap 0.4s linear;
     gap: 0;
 }
 
 .header__nav {
-    transition: opacity 0.4s linear;
+    transition: opacity 0.4s linear, visibility 0.4s linear;
 }
 
 .search--open .header__nav {
     opacity: 0;
+    visibility: hidden;
 }
 
 .header__nav-link {
@@ -663,7 +668,7 @@ body {
     cursor: pointer;
     color: inherit;
     stroke: #6D31EE;
-    transition: stroke 0.4s linear, opacity 0.4s linear;
+    transition: stroke 0.4s linear, opacity 0.4s linear, visibility 0.4s linear;
     margin-right: 20px;
 }
 
@@ -682,6 +687,7 @@ body {
 
 .search--open .header__search-open {
     opacity: 0;
+    visibility: hidden;
 }
 
 .header__entry {
