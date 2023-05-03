@@ -3,12 +3,6 @@
 //= ../libs/choices.js
 
 
-// document.querySelectorAll("a").forEach( link => {
-//     link.addEventListener('click', (el) => {
-//         el.preventDefault()
-//     })
-// })
-
 //= components/modal-open.js
 //= components/header-searchClick.js
 //= components/header-burger.js

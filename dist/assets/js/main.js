@@ -7544,50 +7544,71 @@ __webpack_exports__ = __webpack_exports__["default"];
 });
 
 
-// document.querySelectorAll("a").forEach( link => {
-//     link.addEventListener('click', (el) => {
-//         el.preventDefault()
-//     })
-// })
+const openBtns = document.querySelectorAll('.header-entryClick')
+const headerModalParent = document.getElementById('modal')
+const closeBtn = document.querySelector('.modal__close')
+const modalBox = document.getElementById('modal__box')
+const modalBody = document.querySelector('.body')
 
-// const openBtns = document.querySelectorAll('.header-entryClick')
-// const headerModalParent = document.querySelector('')
-// const closeBtn = document.querySelector('.modal__close')
-// const modalBox = document.getElementById('modal')
 
-// for (const openBtn of openBtns) {
-//     openBtn.addEventListener('click', () => {
-//         headerModalParent.classList.add('modal--open')
-//     })
-// }
 
-// closeBtn.addEventListener('click', () => {
-//     headerModalParent.classList.remove('modal--open')
-// })
+for (const openBtn of openBtns) {
+    openBtn.addEventListener('click', () => {
+        headerModalParent.classList.add('modal--open')
+        modalBody.classList.add('modal--open')
+        let searchOpen = document.querySelector('.header__top-box.search--open')
+        if (searchOpen) {
+            searchOpen.classList.remove('search--open')
+        }
+    })
+}
+closeBtn.addEventListener('click', () => {
+    headerModalParent.classList.remove('modal--open')
+    modalBody.classList.remove('modal--open')
+})
 
-// modalBox.addEventListener('click', function(event) {
-//     event._isClick = true;
-// })
+modalBox.addEventListener('click', function (event) {
+    event._isClick = true;
+})
 
-// headerModalParent.addEventListener('click', function(event) {
-//     if (event._isClick == true)  return
-//     headerModal.classList.remove('modal--open')
-// })
+headerModalParent.addEventListener('click', function (event) {
+    if (event._isClick == true) return
+    headerModalParent.classList.remove('modal--open')
+    modalBody.classList.remove('modal--open')
+
+})
+window.addEventListener('keydown', (e) => {
+    if (e.key == 'Escape') {
+        let modalIsOpen = document.querySelector('.modal.modal--open')
+
+        if (modalIsOpen) {
+            modalIsOpen.classList.remove('modal--open')
+        }
+    }
+})
 const searchOpen = document.querySelector('.header__search-open')
 const searchClose = document.querySelector('.header__search-close')
 const searchParent = document.querySelector('.header__top-box')
 const searchForm = document.getElementById('header-search')
-const searchActive = document.querySelector('.header__top-box.search--open')
 
 searchOpen.addEventListener('click', () => {
     searchParent.classList.add('search--open')
-    
+
 })
 
 searchClose.addEventListener('click', (e) => {
     e.preventDefault()
     searchParent.classList.remove('search--open')
-    
+
+})
+
+window.addEventListener('keydown', (e) => {
+    if (e.key == 'Escape') {
+        let searchActive = document.querySelector('.header__top-box.search--open')
+        if (searchActive) {
+            searchActive.classList.remove('search--open')
+        }
+    }
 })
 const burgerOpen = document.getElementById("burger-open")
 const burgerClose = document.getElementById('burger-close')
@@ -7602,6 +7623,17 @@ burgerOpen.addEventListener('click', () => {
 burgerClose.addEventListener('click', () => {
     burgerMenuParent.classList.remove('menu--open')
     burgerBody.classList.remove('menu--open')
+})
+
+
+window.addEventListener('keydown', (e) => {
+    if (e.key == 'Escape') {
+        let burgerOpen = document.querySelector('.header.menu--open')
+        if (burgerOpen) {
+            burgerMenuParent.classList.remove('menu--open')
+            burgerBody.classList.remove('menu--open')
+        }
+    }
 })
 const elementTop = document.querySelector('.js-choice-1');
 const elementLeft = document.querySelector('.js-choice-2');
