@@ -1,177 +1,167 @@
-&__modal {
+@import '../mixin';
+@import '../variables';
+
+.modal {
     position: absolute;
+    display: grid;
     background-color: rgba($color: #000000, $alpha: .5);
-    left: 50%;
-    top: -200%;
-    bottom: 200%;
-    right: 50%;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    transition: width .4s linear, height .3s linear, opacity .2s linear, top .4s linear, left .4s linear, bottom .4s linear, right .4s linear;
-}
-
-&__modal-container {
-    padding: 80px 0;
-    position: relative;
-}
-
-&__modal-box {
-    position: relative;
-    margin: auto;
-    max-width: 0;
-    max-height: 0;
-    opacity: 0;
-}
-
-&.modal--open  &__modal-box{
     opacity: 1;
-    padding: 60px;
-    max-width: 824px;
-    max-height: 655px;
-    background-color: $black;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    transition: opacity .4s, visibility .4s;
 
-}
+    &__box {
+        position: relative;
+        padding: 60px;
+        margin: auto;
+        max-width: 824px;
+        background-color: $black;
+    }
 
-&__modal-close {
-    @include btn-reset;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 30px;
-    right: 30px;
-
-    svg {
+    &__close {
+        @include btn-reset;
+        position: absolute;
         width: 30px;
         height: 30px;
+        top: 30px;
+        right: 30px;
+
+        svg {
+            width: 30px;
+            height: 30px;
+        }
     }
-}
 
-&__modal-title {
-    @include Muller-Regular;
-    margin-bottom: 17px;
-    font-size: 48px;
-    line-height: 100%;
-    color: $white;
-}
+    &__title {
+        @include Muller-Regular;
+        margin-bottom: 17px;
+        font-size: 48px;
+        line-height: 100%;
+        color: $white;
+    }
 
-&__modal-text {
-    @include Muller-Regular;
-    font-size: 20px;
-    line-height: 100%;
-    color: $white;
-
-
-    a {
-        @include link-reset;
+    &__text {
         @include Muller-Regular;
         font-size: 20px;
-        line-height: 150%;
-        color: $primary;
-        transition: color .4s linear;
+        line-height: 100%;
+        color: $white;
+
+
+        a {
+            @include link-reset;
+            @include Muller-Regular;
+            font-size: 20px;
+            line-height: 150%;
+            color: $primary;
+            transition: color .4s linear;
+
+            &:hover {
+                color: $primary_light;
+            }
+
+            &:focus-visible {
+                outline: none;
+                color: $primary_light;
+            }
+
+            &:active {
+                color: $primary_shade;
+            }
+
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-self: start;
+        margin-bottom: 30px;
+        padding: 30px 0;
+        border-bottom: 1px solid $light_color;
+    }
+
+    &__form-input {
+        margin-bottom: 30px;
+        padding: 25px 32px;
+        max-width: 526px;
+        background-color: transparent;
+        border: 1px solid $text_gray;
+        border-radius: 40px;
+        font-size: 20px;
+        line-height: 100%;
+        color: $text_gray;
+    }
+
+    &__form-btn {
+        @include btn-reset;
+        @include big-btn;
+        max-width: 167px;
+        font-size: 20px;
+        line-height: 100%;
+        color: $white;
+        background-color: $primary;
+        border: 1px solid $primary;
+        transition: background-color .4s linear, border-color .4s linear;
 
         &:hover {
-            color: $primary_light;
+            background-color: $primary_light;
+            border-color: $primary_light;
+        }
+
+        &:focus-visible {
+            background-color: $primary_light;
+            border-color: $primary;
+        }
+
+        &:active {
+            background-color: $primary_shade;
+            border-color: $primary_shade;
+        }
+    }
+
+    &__list {
+        @include list-reset;
+        display: flex;
+        margin-top: 33px;
+        gap: 52px;
+        align-items: center;
+    }
+
+    &__link {
+        fill: $text_gray;
+        transition: fill .4s linear;
+
+        svg {
+            fill: inherit;
+        }
+
+        &:hover {
+            fill: $primary;
         }
 
         &:focus-visible {
             outline: none;
-            color: $primary_light;
+            fill: $primary_light;
         }
 
         &:active {
-            color: $primary_shade;
+            fill: $primary_shade;
         }
 
+
     }
 }
 
-&__modal-form {
-    display: flex;
-    flex-direction: column;
-    align-self: start;
-    margin-bottom: 30px;
-    padding: 30px 0;
-    border-bottom: 1px solid $light_color;
-}
-
-&__modal-input {
-    margin-bottom: 30px;
-    padding: 25px 32px;
-    max-width: 526px;
-    background-color: transparent;
-    border: 1px solid $text_gray;
-    border-radius: 40px;
-    font-size: 20px;
-    line-height: 100%;
-    color: $text_gray;
-}
-
-&__modal-btn {
-    @include btn-reset;
-    @include big-btn;
-    max-width: 167px;
-    font-size: 20px;
-    line-height: 100%;
-    color: $white;
-    background-color: $primary;
-    border: 1px solid $primary;
-    transition: background-color .4s linear, border-color .4s linear;
-
-    &:hover {
-        background-color: $primary_light;
-        border-color: $primary_light;
-    }
-
-    &:focus-visible {
-        background-color: $primary_light;
-        border-color: $primary;
-    }
-
-    &:active {
-        background-color: $primary_shade;
-        border-color: $primary_shade;
-    }
-}
-
-&__modal-list {
-    @include list-reset;
-    display: flex;
-    margin-top: 33px;
-    gap: 52px;
-    align-items: center;
-}
-
-&__modal-link {
-    fill: $text_gray;
-    transition: fill .4s linear;
-
-    svg {
-        fill: inherit;
-    }
-
-    &:hover {
-        fill: $primary;
-    }
-
-    &:focus-visible {
-        outline: none;
-        fill: $primary_light;
-    }
-
-    &:active {
-        fill: $primary_shade;
-    }
-
-
-}
-
-&.modal--open  &__modal{
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.modal.modal--open {
     opacity: 1;
-    width: 100vw;
-    height: 100vh;
+    visibility: visible;
 }

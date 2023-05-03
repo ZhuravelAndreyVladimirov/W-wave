@@ -37,16 +37,18 @@ body {
     @include Muller-Regular;
 }
 
-.body.menu--open {
+.body.menu--open,
+.body.modal--open {
     overflow-y: hidden;
 }
+
+
 
 .container {
     max-width: 1140px;
     margin: auto;
     padding-right: 10px;
     padding-left: 23px;
-    // overflow: hidden;
 }
 
 
@@ -69,7 +71,7 @@ body {
         max-width: 425px;
         padding-left: 26px;
         padding-right: 13px;
-        
+
     }
 }
 
@@ -91,3 +93,4 @@ body {
 @import './componets/adv';
 @import './componets/about';
 @import './componets/footer';
+@import './componets/modal';

@@ -13,3 +13,14 @@ burgerClose.addEventListener('click', () => {
     burgerBody.classList.remove('menu--open')
 })
 
+
+window.addEventListener('keydown', (e) => {
+    if (e.key == 'Escape') {
+        let burgerOpen = document.querySelector('.header.menu--open')
+        if (burgerOpen) {
+            burgerMenuParent.classList.remove('menu--open')
+            burgerBody.classList.remove('menu--open')
+        }
+    }
+})
+
