@@ -1,0 +1,587 @@
+.about {
+    padding-top: 91px;
+    padding-bottom: 94px;
+    background-color: $black;
+
+
+    &__top {
+        margin-bottom: 30px;
+        padding-right: 473px;
+        position: relative;
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &::after {
+            top: 18px;
+            right: 0;
+            width: 255px;
+            height: 255px;
+            background-image: url(../img/about-dawn.svg);
+        }
+
+        &::before {
+            top: 0;
+            right: 276px;
+            width: 170px;
+            height: 290px;
+            background-image: url(../img/about-spiral.svg);
+        }
+
+
+    }
+
+    &__title {
+        @include Muller-Regular;
+        @include main-title-h2;
+        margin-bottom: 12px;
+        color: $white;
+    }
+
+    &__selection {
+        @include Muller-Bold;
+        @include text20px-150percent;
+        ;
+        margin-bottom: 8px;
+        color: $text_gray;
+    }
+
+    &__text {
+        @include Muller-Regular;
+        @include text-20px-160percent;
+        color: $text_gray;
+    }
+
+    &__guest {
+        position: relative;
+        margin-bottom: 25px;
+    }
+
+
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+        left: var(--swiper-navigation-sides-offset, -60px);
+        right: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+        right: var(--swiper-navigation-sides-offset, -60px);
+        left: auto;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 42px;
+        height: 42px;
+        color: $text_gray;
+        border-radius: 100%;
+        border: 2px solid $text_gray;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        content: '';
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        border-left: 2px solid $text_gray;
+        border-bottom: 2px solid $text_gray;
+    }
+
+    .swiper-button-next::after {
+        transform: rotate(-135deg);
+        left: calc((100% - 16px) / 2);
+    }
+
+    .swiper-button-prev::after {
+        transform: rotate(45deg);
+        right: calc((100% - 16px) / 2);
+    }
+
+    &__guest-photo {
+        margin-bottom: 26px;
+        width: 100%;
+        min-height: 255px;
+    }
+
+    &__guest-title {
+        @include Muller-Medium;
+        @include text-20px-100percent;
+        color: $white;
+        margin-bottom: 8px;
+    }
+
+    &__guest-text {
+        @include Muller-Regular;
+        @include text-16px-150percent;
+        color: $text_gray;
+    }
+
+    &__feedback-wrap {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+    }
+
+    &__feedback-top,
+    &__feedback-bottom {
+        width: 100%;
+        max-width: 920px;
+    }
+
+    &__feedback-textarea {
+        @include Muller-Regular;
+        @include text-20px-100percent;
+        position: relative;
+        padding: 30px 10px 10px 32px;
+        width: 100%;
+        height: 150px;
+        background-color: $black;
+        color: $white;
+        border: 1px solid $white;
+        border-radius: 30px;
+        resize: none;
+        transition: border-color .4s linear, background-color .4s linear;
+
+        &::placeholder {
+            @include Muller-Regular;
+            @include text-20px-100percent;
+            color: $text_gray;
+        }
+
+        &:hover {
+            background-color: $light_black;
+            border-color: $white;
+        }
+
+        &:focus {
+            outline: none;
+            background-color: $light_black;
+            border-color: $primary_light;
+        }
+
+
+
+    }
+
+    &__feedback-textarea-box {
+        position: relative;
+        width: 100%;
+        height: 150px;
+
+
+        .err-label {
+            display: block;
+            @include Muller-Regular;
+            position: absolute;
+            width: 100%;
+            height: 14px;
+            left: 32px;
+            top: 10px;
+            font-size: 12px;
+            line-height: 100%;
+            color: $red;
+
+        }
+
+
+    }
+
+    &__feedback-textarea-box.error &__feedback-textarea {
+        border-color: $red;
+    }
+
+    &__feedback-bottom {
+        display: flex;
+        gap: 30px;
+    }
+
+    &__feedback-input-box {
+        position: relative;
+        width: calc((100% - 30px) / 2);
+        height: 70px;
+
+
+
+        .err-label {
+            display: block;
+            @include Muller-Regular;
+            position: absolute;
+            width: 100%;
+            height: 14px;
+            left: 32px;
+            top: 10px;
+            font-size: 12px;
+            line-height: 100%;
+            color: $red;
+
+        }
+
+
+    }
+
+    &__feedback-input {
+        @include Muller-Regular;
+        @include text-20px-100percent;
+        width: 100%;
+        height: 100%;
+        padding: 10px 10px 10px 32px;
+        background-color: $black !important;
+        color: $text_gray !important;
+        border: 1px solid $white;
+        border-radius: 30px;
+        transition: border-color .4s linear, background-color .4s linear;
+
+        &::placeholder {
+            @include Muller-Regular;
+            @include text-20px-100percent;
+            color: $text_gray;
+        }
+
+        &:hover {
+            background-color: $light_black;
+            border-color: $white;
+        }
+
+        &:focus {
+            outline: none;
+            background-color: $light_black;
+            border-color: $primary_light;
+        }
+    }
+
+    &__feedback-input:-webkit-autofill,
+    &__feedback-input:-webkit-autofill:hover,
+    &__feedback-input:-webkit-autofill:focus {
+        -webkit-text-fill-color: $white;
+        -webkit-box-shadow: 0 0 0px 40rem $black inset;
+    }
+
+
+    &__feedback-input-box.error &__feedback-input {
+        border-color: $red;
+    }
+
+    &__feedback-btn {
+        @include btn-reset;
+        @include Muller-Medium;
+        @include text-20px-100percent;
+        padding: 25px 54px;
+        background-color: $primary;
+        border-radius: 40px;
+        color: $white;
+        transition: color .4s linear, background-color .4s linear;
+
+        &:hover {
+            color: $white;
+            background-color: $primary_light;
+        }
+
+        &:focus-visible {
+            outline: none;
+            color: $white;
+            background-color: $primary_light;
+        }
+
+        &:active {
+            color: $white;
+            background-color: $primary_shade;
+        }
+    }
+
+    &__feedback-checkbox-original {
+        display: none;
+    }
+
+    &__feedback-checkbox-custom {
+        @include Muller-Medium;
+        @include text-12px-100percent;
+        position: relative;
+        padding-left: 22px;
+        color: $white;
+        transition: color .4s linear;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            width: 14px;
+            height: 14px;
+            border: 1px solid $white;
+            transition: border-color .4s linear;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            width: 14px;
+            height: 14px;
+            background-image: url(../img/checkbox-icon.svg);
+            background-position: center;
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+            display: none;
+        }
+
+
+    }
+
+    &__feedback-checkbox {
+        cursor: pointer;
+
+        &:hover &--custom {
+            color: $primary_light;
+        }
+
+        &:hover &--custom::before {
+            border-color: $primary_light;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        &:focus-visible &--custom {
+            color: $primary_light;
+        }
+
+        &:focus-visible &--custom::before {
+            border-color: $primary_light;
+        }
+
+        &:active &--custom {
+            color: $primary;
+        }
+
+        &:active &--custom::before {
+            border-color: $primary;
+        }
+
+
+
+
+
+    }
+
+    &__feedback-checkbox.error &__feedback-checkbox-custom {
+        color: $red;
+    }
+
+    &__feedback-checkbox.error &__feedback-checkbox-custom::before {
+        border-color: $red ;
+    }
+
+    &__feedback-checkbox-original:checked+&__feedback-checkbox-custom::after {
+        display: block;
+    }
+}
+
+@media (max-width: 1365px) {
+    .about {
+        .swiper .swiper-container {
+            max-width: 1000px;
+        }
+
+        .swiper-button-prev {
+           
+            left: 0;
+        }
+
+        .swiper-button-next {
+           
+            right: 0;
+        }
+
+    }
+}
+
+@media (max-width: 1199px) {
+    .about {
+        &__top {
+            padding-right: 285px;
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                top: 48px;
+            }
+        }
+
+        &__guest {
+            margin-bottom: 37px;
+        }
+
+
+
+        &__feedback-wrap {
+            gap: 30px;
+        }
+
+        &__feedback-checkbox {
+            display: block;
+        }
+
+        .swiper-button-prev {
+            top: 130px;
+            left: -40px;
+        }
+
+        .swiper-button-next {
+            top: 130px;
+            right: -56px;
+        }
+    }
+
+
+}
+
+@media (max-width: 992px) {
+    .about {
+        &__top {
+            padding-right: 0;
+            padding-bottom: 142px;
+
+            &::after {
+                width: 112px;
+                height: 112px;
+                right: 0;
+                top: calc(100% - 112px);
+            }
+
+            &::before {
+                display: block;
+                width: 639px;
+                height: 112px;
+                right: 95px;
+                top: calc(100% - 112px);
+                background-image: url(../img/about-spiral--big.svg);
+            }
+        }
+
+        &__guest {
+            margin-bottom: 30px;
+        }
+
+        &__feedback-bottom {
+            flex-direction: column;
+        }
+
+        &__feedback-input-box {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .about {
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .about {
+        padding-bottom: 50px;
+        padding-top: 50px;
+
+        &__top {
+            padding-bottom: 0;
+
+            &::after,
+            &::before {
+                display: none;
+            }
+        }
+
+        &__guest-wrap {
+            padding-right: 10px;
+        }
+
+        &__guest-photo {
+            margin-bottom: 12px;
+            min-height: auto;
+        }
+
+        &__guest-title {
+            font-size: 14px;
+            margin-bottom: 2px;
+            padding-right: 5px;
+        }
+
+        &__guest-text {
+            line-height: 140%;
+        }
+
+
+
+        &__feedback-textarea {
+            padding: 17px 10px 10px 24px;
+        }
+
+        &__feedback-input-box {
+            height: 50px;
+        }
+
+        &__feedback-input {
+            padding: 10px 10px 10px 24px;
+        }
+
+        &__feedback-btn {
+            padding: 17px 46px;
+        }
+
+        &__feedback-checkbox {
+            display: block;
+            margin-top: -10px;
+        }
+    }
+
+}
+
+@media (max-width: 424px) {
+    .about {
+        padding-top: 55px;
+
+        &__top {
+            margin-bottom: 25px;
+        }
+
+        &__selection {
+            margin-bottom: 4px;
+        }
+
+        &__guest-title {
+            line-height: 18px;
+        }
+
+        &__guest-text {
+            font-size: 12px;
+        }
+
+        &__feedback-checkbox-custom {
+
+            &::after,
+            &::before {
+                top: -4px;
+            }
+        }
+    }
+}

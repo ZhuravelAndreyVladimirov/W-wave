@@ -1,0 +1,388 @@
+.podcasts {
+    background-color: $light_color_40;
+    padding: 94px 0 94px;
+    // margin-bottom: 92px;
+
+    &__title {
+        @include Muller-Regular;
+        @include main-title-h2;
+        margin-bottom: 27px;
+        color: $black;
+    }
+
+    &__list {
+        @include list-reset;
+        display: grid;
+        margin-bottom: 60px;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        background-color: $white
+    }
+
+    &__item:nth-child(n+9) {
+        display: none;
+    }
+
+    &__item.is-visible {
+        display: flex;
+    }
+
+
+    &__item-date {
+        @include Muller-Regular;
+        display: block;
+        padding: 3px 6px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        font-size: 10px;
+        line-height: 100%;
+        color: $black;
+        background-color: $light_color;
+    }
+
+    &__item-img {
+        min-height: 140px;
+        max-width: 120px;
+
+        img {
+            min-height: 100%;
+            max-width: 115px;
+        }
+    }
+
+    &__item-wrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-bottom: 30px;
+    }
+
+    &__item-content {
+        padding: 24px 30px;
+        padding-right: 80px;
+
+    }
+
+    &__item-time {
+        @include Muller-Regular;
+        @include text-12px-100percent;
+        display: block;
+        margin-bottom: 6px;
+        color: $black;
+
+    }
+
+    &__item-title {
+        @include Muller-Regular;
+        @include text-20px-100percent;
+        margin-bottom: 4px;
+        color: $black;
+    }
+
+    &__item-author {
+        @include Muller-Regular;
+        @include text-16px-100percent;
+        color: $text_gray;
+    }
+
+    &__item-play {
+        @include btn-reset;
+        position: absolute;
+        right: 78px;
+        top: calc(50% - 42px);
+        fill: $text_gray;
+        stroke: $text_gray;
+        transition: opacity .4s linear, stroke .4s linear, fill .4s linear;
+
+        &:hover {
+            fill: $primary;
+            stroke: $primary;
+        }
+
+        &:focus-visible {
+            outline: none;
+            fill: $primary_light;
+            stroke: $primary_light;
+        }
+
+        &:active {
+
+            circle {
+                stroke: $primary_shade;
+                fill: $primary_shade;
+
+            }
+
+            path,
+            rect {
+                fill: $white ;
+            }
+
+            rect {
+                width: 4px;
+            }
+
+
+        }
+    }
+
+    &__item-play-box {
+        position: relative;
+    }
+
+    &__item-play-icon {
+        position: absolute;
+        left: 0;
+        fill: inherit;
+        stroke: inherit;
+        transition: opacity .4s linear;
+
+        circle {
+            stroke: inherit;
+            fill: none;
+        }
+
+        path,
+        rect {
+            fill: inherit;
+        }
+
+
+
+    }
+
+    &__item-play-icon.icon--paused {
+        opacity: 0;
+
+    }
+
+    &__item-play-icon.icon--play {
+        opacity: 1;
+
+
+    }
+
+    .play-btn.btn--play &__item-play-icon.icon--paused {
+        opacity: 1;
+    }
+
+    .play-btn.btn--play &__item-play-icon.icon--play {
+        opacity: 0;
+    }
+
+    &__item-like-box {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-top: 1px solid $light_color;
+        padding: 10px 30px 6px;
+        display: flex;
+        gap: 30px;
+    }
+
+    &__item-btn {
+        @include btn-reset;
+        @include Muller-Regular;
+        @include text-16px-100percent;
+        position: relative;
+        padding-left: 18px;
+        color: $text_gray;
+        fill: $text_gray;
+        transition: color .4s linear, fill .4s linear;
+
+        &:hover {
+            fill: $primary;
+            color: $primary;
+        }
+
+        &:focus-visible {
+            fill: $primary_light;
+            color: $primary_light;
+            outline: none;
+        }
+
+        &:active {
+            fill: $primary_shade;
+            color: $primary_shade;
+        }
+    }
+
+    &__item-btn-icon {
+        position: absolute;
+        left: 0;
+
+        fill: inherit;
+
+        path {
+            fill: inherit;
+        }
+    }
+
+    &__btn-wrap {
+        display: flex;
+    }
+
+    &__btn {
+        @include btn-reset;
+        @include big-btn;
+        @include Muller-Medium;
+        @include text-20px-100percent;
+        margin: 0 auto;
+        border: 1px solid $primary;
+        color: $primary;
+        transition: border-color .4s linear, color .4s linear, background-color .4s linear;
+
+        &:hover {
+            border-color: $primary;
+            color: $white;
+            background-color: $primary;
+        }
+
+        &:focus-visible {
+            border-color: $primary;
+            color: $white;
+            background-color: $primary_light;
+            outline: none;
+        }
+
+        &:active {
+            border-color: $primary_shade;
+            color: $white;
+            background-color: $primary_shade;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .podcasts {
+
+        &__list {
+            margin-bottom: 55px;
+            gap: 27px;
+        }
+
+        &__item-content {
+            padding: 28px 30px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .podcasts {
+        padding-bottom: 89px;
+        &__list {
+            grid-template-columns: 1fr;
+            gap: 27px;
+        }
+
+        &__item-content {
+            padding: 26px 30px;
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .podcasts {
+        padding: 54px 0;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__item {
+            flex-direction: column;
+        }
+
+        &__item:nth-child(n + 5) {
+            display: none;
+        }
+
+        &__item.is-visible {
+            display: flex;
+        }
+
+        &__item-date {
+            bottom: auto;
+            top: 0;
+        }
+
+        &__item-img {
+            max-height: 72px;
+            max-width: 600px;
+
+            img {
+                max-width: 600px;
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+
+        &__item-play {
+            top: calc(74% - 40px);
+        }
+
+        &__item-play-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        &__item-btn {
+            padding-left: 16px;
+            font-size: 14px;
+        }
+
+    }
+}
+
+@media (max-width: 424px) {
+    .podcasts {
+        &__list {
+            margin-bottom: 26px;
+            gap: 27px;
+        }
+
+        &__item-content {
+            padding: 16px;
+        }
+
+        &__item-img {
+            min-height: 72px;
+        }
+
+        &__item-time {
+            margin-bottom: 11px;
+        }
+
+        &__item-title {
+            margin-bottom: 2px;
+        }
+
+        &__item-play {
+            top: calc(70% - 56px);
+            right: 52px;
+        }
+
+        &__item-play-icon {
+            width: 36px;
+            height: 36px;
+        }
+
+        &__item-like-box {
+            padding: 6px 33px;
+        }
+
+        &__btn {
+            padding: 17px 30px;
+        }
+
+    }
+}

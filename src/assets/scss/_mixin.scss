@@ -1,0 +1,198 @@
+@mixin Muller-Regular {
+    font-family: "MullerRegular", 'sans-serif';
+    font-weight: 400;
+}
+
+@mixin Muller-Regular-Italic {
+    font-family: "MullerRegularItalic", 'sans-serif';
+    font-weight: 400;
+}
+
+@mixin Muller-Medium {
+    font-family: 'MullerMedium', 'sans-serif';
+    font-weight: 500;
+}
+
+@mixin Muller-Bold {
+    font-family: 'MullerBold', 'sans-serif';
+    font-weight: 700;
+}
+
+@mixin Muller-Light-Italic {
+    font-family: 'MullerLightItalic', 'sans-serif';
+    font-weight: 300;
+}
+
+@mixin OpenSans-Regular {
+    font-family: 'OpenSans-Regular', 'sans-serif';
+    font-weight: 400;
+}
+
+@mixin list-reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin btn-reset {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit;
+}
+
+@mixin link-reset {
+    color: inherit;
+    text-decoration: none;
+}
+
+@mixin big-btn {
+    padding: 25px 54px;
+    border-radius: 40px;
+}
+
+@mixin small-btn {
+    padding: 10px 32px;
+    border-radius: 77px;
+}
+
+@mixin age-warning {
+    @include Muller-Regular();
+    font-size: 16px;
+    line-height: 140%;
+
+    @media (max-width: 599px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 12px;
+    }
+}
+
+@mixin main-title-h2 {
+    font-size: 48px;
+    line-height: 100%;
+
+    @media (max-width: 599px) {
+        font-size: 36px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 24px;
+    }
+}
+
+@mixin title-big {
+    font-size: 60px;
+    line-height: 100%;
+
+    @media (max-width: 599px) {
+        font-size: 45px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 32px;
+    }
+}
+
+@mixin text-12px-100percent {
+    font-size: 12px;
+    line-height: 100%;
+
+    @media (max-width: 599px) {
+        font-size: 10px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 9px;
+    }
+}
+
+@mixin text-16px-100percent {
+    font-size: 16px;
+    line-height: 100%;
+
+    @media (max-width: 599px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 12px;
+    }
+}
+
+@mixin text-16px-150percent {
+    font-size: 16px;
+    line-height: 150%;
+
+    @media (max-width: 599px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 14px;
+    }
+}
+
+
+@mixin text-16px-180percent {
+    font-size: 16px;
+    line-height: 180%;
+
+    @media (max-width: 424px) {
+        font-size: 14px;
+    }
+}
+
+
+
+@mixin text-20px-100percent {
+    font-size: 20px;
+    line-height: 100%;
+
+    @media (max-width: 599px) {
+        font-size: 18px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 16px;
+    }
+}
+
+@mixin text20px-150percent {
+    font-size: 20px;
+    line-height: 150%;
+
+    @media (max-width: 599px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 14px;
+    }
+}
+
+@mixin text-20px-160percent {
+    font-size: 20px;
+    line-height: 160%;
+
+    @media (max-width: 599px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 424px) {
+        font-size: 14px;
+    }
+}
+
+@mixin text-30px-100percent {
+    font-size: 30px;
+    line-height: 100%;
+
+    @media (max-width: 424px) {
+        font-size: 24px;
+    }
+}
+

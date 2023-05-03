@@ -1,0 +1,140 @@
+@import '../mixin';
+@import '../variables';
+
+
+.hero {
+    margin-bottom: 13px;
+    background-color: $white;
+
+    &__wrap {
+        padding-bottom: 28px;
+        background-image: url(../img/microphone-desktop.jpg);
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+
+    &__box {
+        padding: 96px 470px 53px 0;
+
+    }
+
+    &__title {
+        margin-bottom: 14px;
+    }
+
+    &__title-bold {
+        margin-right: 7px;
+        @include Muller-Bold;
+        @include title-big;
+    }
+
+    &__title-regular {
+        @include Muller-Regular-Italic;
+        @include title-big;
+
+    }
+
+    &__text {
+        @include Muller-Regular;
+        @include text-16px-150percent;
+        margin-bottom: 45px;
+    }
+
+    &__btn {
+        @include btn-reset;
+        @include big-btn;
+        @include Muller-Regular;
+        @include text-20px-100percent;
+        background-color: $primary;
+        border: $primary 1px solid;
+        color: $white;
+        transition: background .3s ease-in-out, border .3s ease-in-out;
+    }
+
+    &__btn:hover {
+        background-color: $primary_light;
+        border-color: $primary_light;
+    }
+
+    &__btn:focus-visible {
+        outline: none;
+        background-color: $primary_light;
+        border-color: $primary_shade;
+    }
+
+    &__btn:active {
+        background-color: $primary_shade;
+        border-color: $primary_shade;
+    }
+}
+
+
+@media (max-width: 1199px) {
+
+    .hero {
+        margin-bottom: 7px;
+
+        &__wrap {
+            background-size: 256px 262px;
+        }
+
+        &__box {
+            padding: 92px 270px 53px 0;
+        }
+
+        &__text {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        margin-bottom: 8px;
+
+        &__wrap {
+            background-image: none;
+        }
+
+        &__box {
+            padding-right: 0;
+        }
+
+    }
+}
+
+@media (max-width: 599px) {
+    .hero {
+        &__box {
+            padding-top: 35px;
+        }
+
+        &__title {
+            margin-bottom: 7px;
+        }
+
+        &__btn {
+            padding: 20px 49px;
+        }
+    }
+}
+
+@media (max-width:424px) {
+    .hero {
+        margin-bottom: -41px;
+
+        &__box {
+            padding-top: 39px;
+        }
+
+        &__title-bold {
+            margin-right: 1px;
+        }
+
+        &__btn {
+            padding: 16px 44px;
+        }
+
+    }
+
+}

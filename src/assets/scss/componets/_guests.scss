@@ -1,0 +1,512 @@
+@import '../mixin';
+@import '../variables';
+
+
+.guests {
+    padding-top: 94px;
+    padding-bottom: 92px;
+    background-color: $black;
+    color: $text_gray;
+
+    &__wrap {
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+    }
+
+    &__head {
+        padding-right: 335px;
+        margin-bottom: 49px;
+    }
+
+    &__title {
+        @include Muller-Regular;
+        @include main-title-h2;
+        margin-bottom: 13px;
+        color: $white;
+    }
+
+    &__visit-hero {
+        @include Muller-Bold;
+        @include text-20px-160percent;
+        display: block;
+        margin-bottom: 8px;
+        color: $text_gray;
+    }
+
+    &__visit-text {
+        @include Muller-Regular;
+        @include text-20px-160percent;
+        color: $text_gray;
+    }
+
+    &__left {
+        width: calc(100% - 380px);
+        background-color: transparent;
+    }
+
+    &__employment-list {
+        @include list-reset;
+        background-color: transparent;
+    }
+
+    &__employment-item {
+        margin: 0;
+        background-color: transparent;
+        border: none;
+
+    }
+
+    &__employment-title {
+        border-top: 1px solid $text_gray;
+        border-bottom: 1px solid $text_gray;
+    }
+
+    &__employment-item:not(:first-child) {
+        margin-top: -1px;
+    }
+
+    &__employment-btn {
+        position: relative;
+        color: $white;
+
+        &::after {
+            content: none;
+        }
+
+
+    }
+
+    &__employment-btn-icon {
+        position: absolute;
+        right: 0;
+        top: calc(50% - 24px);
+        transition: transform .3s linear, fill .3s linear, stroke .3s linear;
+        stroke: inherit;
+        fill: inherit;
+
+        path,
+        circle {
+            stroke: inherit;
+        }
+    }
+
+
+
+    &__name-list {
+        @include list-reset;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 8px 30px;
+    }
+
+    &__name-btn {
+        @include btn-reset;
+        @include Muller-Regular;
+        @include text-16px-100percent;
+        color: $white;
+        transition: color .4s linear, background .4s linear;
+
+        &:hover {
+            color: $primary;
+        }
+
+        &:focus-visible {
+            outline: none;
+            background-color: $primary_light;
+            color: $white;
+
+        }
+
+        &:active {
+            color: $primary_shade;
+            background-color: transparent;
+
+        }
+
+
+        &.active-tab {
+            color: $primary_light;
+            background-color: transparent;
+        }
+    }
+
+
+
+    &__right {
+        max-width: 350px;
+    }
+
+    &__card-img {
+        max-width: 350px;
+        max-height: 220px;
+
+    }
+
+    &__card-box {
+        padding: 10px 2px;
+    }
+
+    &__social {
+        margin-bottom: 8px;
+        display: flex;
+        gap: 29px;
+    }
+
+
+
+    &__card-title {
+        @include Muller-Medium;
+        font-size: 20px;
+        line-height: 100%;
+        margin-bottom: 8px;
+        color: $white;
+    }
+
+    &__card-text {
+        @include Muller-Regular;
+        font-size: 16px;
+        line-height: 180%;
+        margin-bottom: 29px;
+        color: $text_gray;
+    }
+
+    &__card-btn {
+        @include btn-reset;
+        @include Muller-Medium;
+        font-size: 16px;
+        line-height: 100%;
+        padding: 10px 18px;
+        color: $primary_light;
+        border: 2px solid $primary_light;
+        border-radius: 77px;
+        background-color: transparent;
+        transition: color .4s linear, background-color .4s linear, border-color .4s linear;
+
+        &:hover {
+            color: $white;
+            background-color: $primary_light;
+        }
+
+        &:focus-visible {
+            outline: none;
+            color: $white;
+            background-color: $primary;
+            border-color: $primary;
+        }
+
+        &:active {
+            color: $white;
+            background-color: $primary_shade;
+            border-color: $primary_shade;
+        }
+    }
+
+
+    &__card {
+        display: none;
+    }
+
+    &__card.active-tab {
+        display: block;
+    }
+
+
+    .ac .ac-trigger {
+        @include Muller-Medium;
+        @include text-20px-100percent;
+        padding: 34px 0;
+        color: $white;
+        transition: color .4s linear, background .4s linear;
+        stroke: $text_gray;
+        fill: transparent;
+
+        &:hover {
+            color: $primary_light;
+            stroke: $primary_light;
+        }
+
+        &:focus-visible {
+            outline: none;
+            color: $white;
+            background-color: $light_black;
+            stroke: $text_gray;
+        }
+
+        &:focus {
+            background-color: transparent;
+        }
+
+        &:active {
+            color: $primary_light;
+            background-color: transparent;
+            fill: $primary_light;
+            stroke: $white;
+        }
+    }
+
+    .ac.is-active .ac-trigger {
+        color: $white;
+        background-color: transparent;
+    }
+
+    .ac.is-active &__employment-btn-icon {
+        transform: rotate(180deg);
+    }
+
+    .ac.is-active .ac-header {
+        margin-bottom: 24px;
+    }
+
+    .ac.is-active {
+        margin-bottom: 30px;
+    }
+
+    .ac .ac-panel .ac-text {
+        padding: 0;
+
+    }
+
+    .ac .ac-trigger:after {
+        content: none;
+    }
+
+    .ac.is-active>.ac-header .ac-trigger:after {
+        content: none;
+    }
+
+    .ac .ac-trigger {
+        padding: 34px 0;
+        color: $white;
+        transition: color .4s linear, background .4s linear;
+
+        &:hover {
+            color: $primary_light;
+        }
+
+        &:focus {
+            outline: none;
+            color: $white;
+            background-color: $light_black;
+        }
+
+        &:active {
+            color: $primary_light;
+            background-color: transparent;
+        }
+
+
+    }
+
+    &__socials-link {
+        fill: $text_gray;
+        transition: fill .4s linear;
+
+        &:hover {
+            fill: $primary_light;
+        }
+
+        &:focus-visible {
+            outline: none;
+            fill: $primary_light;
+        }
+
+        &:active {
+            fill: $primary_shade;
+        }
+
+    }
+
+    &__socials-link-icon {
+
+        fill: inherit;
+
+        g {
+            fill: inherit;
+
+            path {
+                fill: inherit;
+            }
+        }
+
+
+    }
+}
+
+
+
+@media (max-width: 1199px) {
+    .guests {
+
+        &__head {
+            padding-right: 263px;
+        }
+
+        &__left {
+            width: calc(100% - 285px);
+        }
+
+        &__name-list {
+            grid-template-columns: 1fr 1fr 1fr;
+
+        }
+
+        &__right {
+            max-width: 255px;
+        }
+
+        &__card-img {
+            max-width: 255px;
+            max-height: 160px;
+        }
+
+
+    }
+}
+
+@media (max-width: 992px) {
+    .guests {
+        padding-bottom: 82px;
+
+        &__head {
+            padding-right: 0;
+        }
+
+        &__wrap {
+            flex-direction: column;
+        }
+
+        &__left {
+            width: 100%;
+            margin-bottom: 19px;
+        }
+
+        &__name-list {
+            gap: 22px 30px;
+        }
+
+        &__right {
+            max-width: 540px;
+        }
+
+        &__card-img {
+            max-width: 540px;
+            max-height: 220px;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+
+        &__card-box {
+            padding-right: 125px;
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .guests {
+        padding-bottom: 55px;
+        padding-top: 53px;
+
+        &__wrap {
+            gap: 10px;
+        }
+
+        &__head {
+            margin-bottom: 28px;
+        }
+
+        .ac .ac-trigger {
+            padding: 17px 0 18px;
+        }
+
+        &__employment-btn-icon {
+            top: calc(50% - 15px);
+            width: 30px;
+            height: 30px;
+        }
+
+        .ac.is-active .ac-header {
+            margin-bottom: 16px;
+        }
+
+        &__name-btn {
+            text-align: left;
+        }
+
+        &__card-img {
+            max-width: 386px;
+        }
+
+        &__card-box {
+            padding-right: 15px;
+        }
+
+        &__card-btn {
+            padding: 7px 13px;
+        }
+    }
+
+
+}
+
+@media (max-width: 424px) {
+    .guests {
+
+
+        &__title {
+            margin-bottom: 11px;
+        }
+
+        &__visit-hero {
+            margin: 0;
+        }
+
+        &__name-list {
+            grid-template-columns: 1fr 1fr;
+            gap: 25px 30px;
+        }
+
+        .ac .ac-panel .ac-text {
+            padding-right: 15px;
+        }
+
+        .ac.is-active {
+            margin-bottom: 21px;
+        }
+
+        &__card-img {
+            max-width: 271px;
+            width: 100%;
+            max-height: 159px;
+            height: 100%;
+        }
+
+        &__card-box {
+            padding: 0;
+            padding-top: 10px;
+        }
+
+        &__social {
+            gap: 22px;
+            margin-bottom: 14px;
+        }
+
+        &__socials-link-icon {
+            display: block;
+            width: 35px;
+            height: auto;
+        }
+
+        &__name-btn {
+            font-size: 14px;
+        }
+
+    }
+
+
+
+
+
+
+}

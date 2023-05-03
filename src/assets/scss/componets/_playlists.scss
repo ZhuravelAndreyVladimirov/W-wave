@@ -1,0 +1,543 @@
+.playlists {
+    padding-top: 93px;
+    padding-bottom: 91px;
+    background-color: $white;
+
+
+    &__bottom,
+    &__swiper {
+        display: none;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    &__left {
+        position: sticky;
+        max-width: 350px;
+        top: 90px;
+        max-height: 650px;
+    }
+
+    &__left-top {
+        margin-bottom: 38px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $shade_gray;
+    }
+
+    &__title {
+        @include Muller-Regular;
+        @include main-title-h2;
+        margin-bottom: 12px;
+        color: $black;
+    }
+
+    &__filter-name {
+        @include Muller-Regular;
+        @include text-16px-100percent;
+        display: block;
+        margin-bottom: 15px;
+        color: $text_gray;
+    }
+
+    &__filter-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    &__filter-left,
+    &__filter-right {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+    }
+
+    &__filter-item {
+        padding-left: 40px;
+        position: relative;
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    &__filter-item:hover &__filter-checkbox-custom::before {
+        border-color: $primary;
+    }
+
+    &__filter-item:focus-visible &__filter-checkbox-custom::before {
+        border-color: $primary;
+        background-color: $text_gray;
+    }
+
+
+    &__filter-checkbox {
+        display: none;
+    }
+
+    &__filter-checkbox-custom {
+        @include Muller-Regular;
+        @include text-20px-100percent;
+        color: $black;
+
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            left: 0;
+            top: -5px;
+            border-radius: 50%;
+            transition: border-width .1s linear, border-color .4s linear, background-color .4s linear;
+        }
+
+        &::before {
+            border: 2px solid $text_gray;
+        }
+
+        &::after {
+            display: none;
+            border: 7px solid $primary;
+        }
+
+    }
+
+    &__filter-checkbox:checked+&__filter-checkbox-custom::before {
+        border: 7px solid $primary;
+    }
+
+    &__age-warning {
+        @include age-warning;
+        color: $text_gray;
+    }
+
+    &__copyright {
+        @include age-warning;
+        @include Muller-Light-Italic;
+        margin-bottom: 6px;
+        color: $text_gray;
+    }
+
+    &__age {
+        @include OpenSans-Regular;
+        @include text-12px-100percent;
+        display: inline-block;
+        padding: 7px 5px;
+        border: 1px solid $text_gray;
+        border-radius: 50%;
+        line-height: 140%;
+        color: $text_gray;
+    }
+
+    &__group-list {
+        @include list-reset;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+        padding-top: 14px;
+    }
+
+    &__group-item {
+        height: 100%;
+        max-width: 160px;
+    }
+
+    &__group-link {
+        @include link-reset;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        max-width: 160px;
+        justify-content: space-between;
+
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 42px;
+            height: 42px;
+            top: 59px;
+            left: 59px;
+            background-image: url(../img/playlists-play_btn.svg);
+            background-position: center;
+            transition: transform .4s linear, opacity .4s linear;
+            opacity: 0;
+            z-index: 15;
+
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            top: 0;
+            right: 0;
+            z-index: 3;
+            background-color: $black;
+            opacity: 0;
+            transition: transform .4s linear, opacity .4s linear;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+        &:hover::before {
+            opacity: .5;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        &:focus-visible::after {
+            opacity: 1;
+        }
+
+        &:focus-visible::before {
+            opacity: .5;
+        }
+
+        &:active::after {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        &:active::before {
+            opacity: .5;
+        }
+
+        picture {
+            max-height: 160px;
+        }
+
+    }
+
+    &__group-country {
+        position: absolute;
+        top: 0;
+        width: 24px;
+        left: calc(100% - 24px);
+        z-index: 2;
+    }
+
+    &__group-photo {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        z-index: 1;
+
+
+    }
+
+    &__group-box {
+        padding: 15px 16px 16px 17px;
+        max-width: 160px;
+        height: 100%;
+        border: 1px solid $light_color;
+        transition: border-color .4s linear, background-color .4s linear;
+    }
+
+    &__group-title {
+        @include Muller-Medium;
+        @include text-16px-100percent;
+        color: $black;
+        transition: color .4s linear;
+
+    }
+
+    &__group-deskr {
+        @include Muller-Regular;
+        @include text-12px-100percent;
+        color: $text_gray;
+        background-color: transparent;
+        transition: color .4s linear;
+    }
+
+    &__group-link:hover &__group-box {
+        background-color: $primary;
+        border-color: $primary;
+    }
+
+    &__group-link:hover &__group-title {
+        color: $white;
+
+    }
+
+    &__group-link:hover &__group-deskr {
+        color: $white;
+    }
+
+    &__group-link:focus-visible &__group-box {
+        background-color: $primary_light;
+        border-color: $primary_light;
+    }
+
+    &__group-link:focus-visible &__group-title {
+        color: $black;
+    }
+
+    &__group-link:focus-visible &__group-deskr {
+        color: $black;
+    }
+
+
+    &__group-link:active &__group-box {
+        background-color: $primary_shade;
+        border-color: $primary_shade;
+    }
+
+    &__group-link:active &__group-title {
+        color: $white;
+    }
+
+    &__group-link:active &__group-deskr {
+        color: $white;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .playlists {
+
+       
+
+        &__left-bottom {
+            display: none;
+        }
+
+        &__wrap {
+            flex-direction: column;
+        }
+
+        &__left {
+            position: static;
+            min-height: auto;
+            max-width: max-content;
+        }
+
+        &__left-top {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        &__filter-list {
+            grid-template-columns: 171px 1fr;
+            gap: 0;
+            padding: 2px;
+        }
+
+
+        &__right {
+            margin-bottom: 5px;
+        }
+
+        &__group-list {
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 0;
+            margin-bottom: 3px;
+            gap: 27px;
+        }
+
+        &__group-item {
+            width: 100%;
+            max-width: none;
+        }
+
+        &__group-link {
+            flex-direction: row;
+            max-width: none;
+            width: 100%;
+
+            &::before {
+                width: 114px;
+                height: 111px;
+                right: auto;
+                left: 0;
+            }
+
+            &::after {
+                width: 32px;
+                height: 32px;
+                background-size: cover;
+                top: calc((100% - 32px) / 2);
+                left: calc((112px - 32px) / 2);
+            }
+        }
+
+        &__group-country {
+            left: 0;
+        }
+
+        &__group-photo {
+            width: 114px;
+            height: 111px;
+        }
+
+        &__group-box {
+            max-width: none;
+            padding: 38px 8px 10px;
+            width: 100%;
+            max-height: 111px;
+        }
+
+        &__bottom {
+            display: block;
+            padding-top: 37px;
+            border-top: 1px solid $shade_gray;
+        }
+
+        
+    }
+
+    
+
+
+}
+
+@media (max-width: 992px) {
+    .playlists {
+        &__filter-list {
+            margin-bottom: 20px;
+        }
+
+        &__filter-left, &__filter-right {
+            gap: 40px;
+        }
+
+
+        &__group-list {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+    }
+}
+
+@media (max-width: 599px) {
+    .playlists {
+        padding-top: 55px;
+        padding-bottom: 58px;
+        &__filter-list {
+            display: none;
+        }
+
+        &__swiper {
+            display: block;
+            padding-right: 21px;
+        }
+
+        &__left-top {
+            margin-bottom: -9px;
+        }
+
+        &__title {
+            margin-bottom: 18px;
+        }
+
+        &__filter-checkbox-custom-mobile {
+            @include Muller-Medium;
+            display: block;
+            
+            padding: 9.5px 19.5px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 100%;
+            color: $primary;
+            border-radius: 77px;
+            border: 2px solid $primary;
+            transition: color .4s linear,
+                background-color .4s linear,
+                border-color .4s linear;
+
+            &:hover {
+                border-color: $primary;
+                color: $white;
+                background-color: $primary_light;
+            }
+
+            &:focus-visible {
+                border-color: $primary;
+                color: $white;
+                background-color: $primary_light;
+                outline: none;
+            }
+
+            &:active {
+                border-color: $primary_shade;
+                color: $white;
+                background-color: $primary_shade;
+            }
+        }
+
+        &__filter-checkbox:checked+&__filter-checkbox-custom-mobile {
+            background-color: $primary;
+            color: $white;
+            
+        }
+
+        &__right {
+            margin-top: -3px;
+        }
+
+        &__group-list {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        &__group-link {
+            flex-direction: column;
+
+            picture {
+                min-height: auto;
+                max-height: 113px;
+            }
+
+            &::after {
+                top: 40px;
+            }
+        }
+
+        &__group-country {
+            left: auto;
+            right: 0;
+        }
+
+        &__group-photo {
+            max-width: 113px;
+            height: auto;;
+        }
+
+        &__group-box {
+            margin-top: -3px;
+            padding: 13px 8px;
+            padding-bottom: 8px;
+            max-width: 113px;
+            max-height: none;
+        }
+
+        &__bottom {
+            padding-top: 29px;
+            margin-top: -8px;
+        }
+
+    }
+}
+
+@media (max-width: 424px) {
+    .playlists {
+        &__group-list {
+            grid-template-columns: 1fr 1fr ;
+            gap: 28px;
+        }
+    }
+}

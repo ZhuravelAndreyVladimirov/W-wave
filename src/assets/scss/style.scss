@@ -1,0 +1,89 @@
+/*Библиотеки*/
+@import '../libs/choices.min.scss';
+@import '../libs/accordion.scss';
+
+
+@import './mixin';
+@import './fonts';
+
+/*Убираем внешние отступы*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+    @include Muller-Regular;
+}
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+    padding-right: 10px;
+    padding-left: 23px;
+    // overflow: hidden;
+}
+
+
+@media (max-width: 1199px) {
+    .container {
+        max-width: 857px
+    }
+}
+
+@media (max-width:992px) {
+    .container {
+        max-width: 580px;
+        padding-left: 26px;
+        padding-right: 13px;
+    }
+}
+
+@media (max-width: 599px) {
+    .container {
+        max-width: 425px;
+        padding-left: 26px;
+        padding-right: 13px;
+        
+    }
+}
+
+@media (max-width: 424px) {
+    .container {
+        max-width: 320px;
+        padding: 0;
+        padding-left: 32px;
+        padding-right: 17px;
+    }
+}
+
+@import './componets/header';
+@import './componets/hero';
+@import './componets/podcasts';
+@import './componets/broadcasts';
+@import './componets/guests';
+@import './componets/playlists';
+@import './componets/adv';
+@import './componets/about';
+@import './componets/footer';
