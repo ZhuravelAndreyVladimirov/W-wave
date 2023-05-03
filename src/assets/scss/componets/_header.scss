@@ -32,20 +32,22 @@
         display: flex;
         justify-content: space-between;
         gap: 39px;
+        transition: gap .4s linear;
+
 
     }
 
     .search--open &__nav-list {
-        transition: gap .4s linear;
         gap: 0;
     }
 
     &__nav {
-        transition: opacity .4s linear;
+        transition: opacity .4s linear, visibility .4s linear;
     }
 
     .search--open &__nav {
         opacity: 0;
+        visibility: hidden;
     }
 
     &__nav-link {
@@ -85,7 +87,7 @@
     &__search-btn {
         @include btn-reset;
         stroke: $primary;
-        transition: stroke .4s linear, opacity .4s linear;
+        transition: stroke .4s linear, opacity .4s linear, visibility .4s linear;
         margin-right: 20px;
 
         &:hover {
@@ -103,9 +105,11 @@
 
     }
 
+
+
     .search--open &__search-open {
         opacity: 0;
-
+        visibility: hidden;
     }
 
     &__entry {

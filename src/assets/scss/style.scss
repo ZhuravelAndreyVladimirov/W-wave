@@ -37,6 +37,10 @@ body {
     @include Muller-Regular;
 }
 
+.body.menu--open {
+    overflow-y: hidden;
+}
+
 .container {
     max-width: 1140px;
     margin: auto;

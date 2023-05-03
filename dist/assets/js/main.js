@@ -7592,13 +7592,16 @@ searchClose.addEventListener('click', (e) => {
 const burgerOpen = document.getElementById("burger-open")
 const burgerClose = document.getElementById('burger-close')
 const burgerMenuParent = document.querySelector('.header')
+const burgerBody = document.querySelector('.body')
 
 burgerOpen.addEventListener('click', () => {
     burgerMenuParent.classList.add('menu--open')
+    burgerBody.classList.add('menu--open')
 })
 
 burgerClose.addEventListener('click', () => {
     burgerMenuParent.classList.remove('menu--open')
+    burgerBody.classList.remove('menu--open')
 })
 const elementTop = document.querySelector('.js-choice-1');
 const elementLeft = document.querySelector('.js-choice-2');
@@ -7629,9 +7632,11 @@ const buttons = document.querySelectorAll('.play-btn')
 for (let btn of buttons) {
     btn.addEventListener('click', e => {
         const activeBtn = document.querySelector('.play-btn.btn--play')
-        btn.classList.toggle('btn--play')        
+        btn.classList.toggle('btn--play')
         if (activeBtn !== e.target) {
-            activeBtn.classList.remove('btn--play')
+            if (activeBtn) {
+                activeBtn.classList.remove('btn--play')
+            }
         }
     })
 }
@@ -7906,9 +7911,30 @@ document.getElementById('about-form').addEventListener('submit', function (event
     validation(this)
 })
 let headerLinkArr = document.querySelectorAll('.header__nav-link')
+let header = document.getElementById('header')
 
 headerLinkArr.forEach(link => {
-    link.addEventListener('click', (e) => {
+    link.addEventListener('click', function(e) {
         e.preventDefault()
+        let menuOpen = document.querySelector('.header.menu--open')
+        let bodyMenu = document.querySelector('.body.menu--open')
+        let anchorId = this.getAttribute('href')
+        document.querySelector(anchorId).scrollIntoView({block: "start", behavior: "smooth"})
+        if (menuOpen) {
+            header.classList.remove('menu--open')
+        }
+        if (bodyMenu) {
+            bodyMenu.classList.remove('menu--open')
+        }
+    })
+});
+
+let footerLinkArr = document.querySelectorAll('.footer__nav-link')
+
+footerLinkArr.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault()
+        let anchorId = this.getAttribute('href')
+        document.querySelector(anchorId).scrollIntoView({block: "start", behavior: "smooth"})
     })
 });
