@@ -7583,6 +7583,7 @@ window.addEventListener('keydown', (e) => {
 
         if (modalIsOpen) {
             modalIsOpen.classList.remove('modal--open')
+            modalBody.classList.remove('modal--open')
         }
     }
 })
