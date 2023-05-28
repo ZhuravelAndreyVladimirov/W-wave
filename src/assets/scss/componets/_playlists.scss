@@ -309,7 +309,7 @@
 @media (max-width: 1200px) {
     .playlists {
 
-       
+
 
         &__left-bottom {
             display: none;
@@ -397,10 +397,10 @@
             border-top: 1px solid $shade_gray;
         }
 
-        
+
     }
 
-    
+
 
 
 }
@@ -411,7 +411,8 @@
             margin-bottom: 20px;
         }
 
-        &__filter-left, &__filter-right {
+        &__filter-left,
+        &__filter-right {
             gap: 40px;
         }
 
@@ -419,7 +420,7 @@
         &__group-list {
             grid-template-columns: 1fr 1fr;
         }
-        
+
     }
 }
 
@@ -427,6 +428,7 @@
     .playlists {
         padding-top: 55px;
         padding-bottom: 58px;
+
         &__filter-list {
             display: none;
         }
@@ -447,7 +449,7 @@
         &__filter-checkbox-custom-mobile {
             @include Muller-Medium;
             display: block;
-            
+
             padding: 9.5px 19.5px;
             text-align: center;
             font-size: 16px;
@@ -482,7 +484,7 @@
         &__filter-checkbox:checked+&__filter-checkbox-custom-mobile {
             background-color: $primary;
             color: $white;
-            
+
         }
 
         &__right {
@@ -507,6 +509,10 @@
             }
         }
 
+        &__group-link {
+            max-width: 113px;
+        }
+
         &__group-country {
             left: auto;
             right: 0;
@@ -514,7 +520,7 @@
 
         &__group-photo {
             max-width: 113px;
-            height: auto;;
+            height: auto;
         }
 
         &__group-box {
@@ -536,8 +542,12 @@
 @media (max-width: 424px) {
     .playlists {
         &__group-list {
-            grid-template-columns: 1fr 1fr ;
+            grid-template-columns: 1fr 1fr;
             gap: 28px;
+        }
+
+        &__group-link {
+            max-width: 113px;
         }
     }
 }

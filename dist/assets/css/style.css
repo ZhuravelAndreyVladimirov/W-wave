@@ -3830,6 +3830,10 @@ body {
         top: 40px;
     }
 
+    .playlists__group-link {
+        max-width: 113px;
+    }
+
     .playlists__group-country {
         left: auto;
         right: 0;
@@ -3858,6 +3862,10 @@ body {
     .playlists__group-list {
         grid-template-columns: 1fr 1fr;
         gap: 28px;
+    }
+
+    .playlists__group-link {
+        max-width: 113px;
     }
 }
 
@@ -5307,4 +5315,45 @@ body {
 .modal.modal--open {
     opacity: 1;
     visibility: visible;
+}
+
+@media (max-width: 599px) {
+    .modal__box {
+        padding: 40px 20px;
+    }
+
+    .modal__title {
+        margin-bottom: 8px;
+        font-size: 24px;
+    }
+
+    .modal__text {
+        font-size: 12px;
+        color: #A1A6B4;
+    }
+
+    .modal__text a {
+        font-size: 12px;
+    }
+
+    .modal__form {
+        border-color: rgba(230, 232, 236, 0.4);
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+
+    .modal__form-input {
+        margin-bottom: 20px;
+        padding: 12px 18px;
+        font-size: 16px;
+    }
+
+    .modal__form-btn {
+        padding: 12px 54px;
+        font-size: 16px;
+    }
+
+    .modal__list {
+        margin-top: 20px;
+    }
 }

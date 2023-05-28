@@ -108,7 +108,6 @@ function validation(form) {
 
         if (input.dataset.validLenMin != undefined) {
 
-            alert('asd')
             const inpLen = input.value.length
 
 

@@ -7717,9 +7717,9 @@ const tabsCard = document.querySelectorAll('.guests__card')
 
 tabsBtn.forEach((item) => {
     item.addEventListener('click', () => {
-        let curentBtn = item
-        let tabID = curentBtn.getAttribute('data-tab')
-        let curentTab = document.querySelector(tabID)
+        const curentBtn = item
+        const tabID = curentBtn.getAttribute('data-tab')
+        const curentTab = document.querySelector(tabID)
 
         tabsBtn.forEach((item) => {
             item.classList.remove("active-tab")
@@ -7728,10 +7728,17 @@ tabsBtn.forEach((item) => {
         tabsCard.forEach((item) => {
             item.classList.remove("active-tab")
         })
-
-
         curentBtn.classList.add('active-tab')
         curentTab.classList.add('active-tab')
+
+        if (window.innerWidth <= 992) {
+
+            const tabBox = document.getElementById('tab-box')
+            if (tabBox) {
+                tabBox.scrollIntoView({ block: "start", behavior: "smooth" })
+            }
+
+        }
     })
 })
 // import Swiper, { Navigation, Pagination } from '../node_modules/swiper';
@@ -7899,7 +7906,6 @@ function validation(form) {
 
         if (input.dataset.validLenMin != undefined) {
 
-            alert('asd')
             const inpLen = input.value.length
 
 
@@ -7943,16 +7949,18 @@ document.getElementById('about-form').addEventListener('submit', function (event
 
     validation(this)
 })
-let headerLinkArr = document.querySelectorAll('.header__nav-link')
-let header = document.getElementById('header')
+const headerLinkArr = document.querySelectorAll('.header__nav-link')
+const header = document.getElementById('header')
+const footerLinkArr = document.querySelectorAll('.footer__nav-link')
+
 
 headerLinkArr.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault()
-        let menuOpen = document.querySelector('.header.menu--open')
-        let bodyMenu = document.querySelector('.body.menu--open')
-        let anchorId = this.getAttribute('href')
-        document.querySelector(anchorId).scrollIntoView({block: "start", behavior: "smooth"})
+        const menuOpen = document.querySelector('.header.menu--open')
+        const bodyMenu = document.querySelector('.body.menu--open')
+        const anchorId = this.getAttribute('href')
+        document.querySelector(anchorId).scrollIntoView({ block: "start", behavior: "smooth" })
         if (menuOpen) {
             header.classList.remove('menu--open')
         }
@@ -7962,12 +7970,11 @@ headerLinkArr.forEach(link => {
     })
 });
 
-let footerLinkArr = document.querySelectorAll('.footer__nav-link')
 
 footerLinkArr.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault()
-        let anchorId = this.getAttribute('href')
-        document.querySelector(anchorId).scrollIntoView({block: "start", behavior: "smooth"})
+        const anchorId = this.getAttribute('href')
+        document.querySelector(anchorId).scrollIntoView({ block: "start", behavior: "smooth" })
     })
 });

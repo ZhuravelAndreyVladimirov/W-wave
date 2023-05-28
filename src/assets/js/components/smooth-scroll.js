@@ -1,13 +1,15 @@
-let headerLinkArr = document.querySelectorAll('.header__nav-link')
-let header = document.getElementById('header')
+const headerLinkArr = document.querySelectorAll('.header__nav-link')
+const header = document.getElementById('header')
+const footerLinkArr = document.querySelectorAll('.footer__nav-link')
+
 
 headerLinkArr.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault()
-        let menuOpen = document.querySelector('.header.menu--open')
-        let bodyMenu = document.querySelector('.body.menu--open')
-        let anchorId = this.getAttribute('href')
-        document.querySelector(anchorId).scrollIntoView({block: "start", behavior: "smooth"})
+        const menuOpen = document.querySelector('.header.menu--open')
+        const bodyMenu = document.querySelector('.body.menu--open')
+        const anchorId = this.getAttribute('href')
+        document.querySelector(anchorId).scrollIntoView({ block: "start", behavior: "smooth" })
         if (menuOpen) {
             header.classList.remove('menu--open')
         }
@@ -17,13 +19,15 @@ headerLinkArr.forEach(link => {
     })
 });
 
-let footerLinkArr = document.querySelectorAll('.footer__nav-link')
 
 footerLinkArr.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault()
-        let anchorId = this.getAttribute('href')
-        document.querySelector(anchorId).scrollIntoView({block: "start", behavior: "smooth"})
+        const anchorId = this.getAttribute('href')
+        document.querySelector(anchorId).scrollIntoView({ block: "start", behavior: "smooth" })
     })
 });
+
+
+
 
